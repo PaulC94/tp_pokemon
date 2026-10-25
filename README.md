@@ -11,6 +11,10 @@ API REST scolaire en Express, TypeScript et PostgreSQL. Les classes `Attack`, `P
 
 Le serveur écoute sur le port 3000, sauf si `PORT` est défini. `npm test` vérifie les règles métier et les réponses HTTP de validation.
 
+## Interface web
+
+Après `npm start`, ouvrir `http://localhost:3000/` dans un navigateur. Cette page unique permet de créer et consulter les ressources, de les associer, d'utiliser la taverne et de lancer les quatre modes de combat. Les données et les résultats sont chargés depuis les endpoints REST existants.
+
 ## Endpoints
 
 | Méthode | Route | Corps JSON pour POST |

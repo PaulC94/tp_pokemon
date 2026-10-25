@@ -1,4 +1,5 @@
 import express, { ErrorRequestHandler } from 'express';
+import path from 'node:path';
 import { AppError } from './AppError';
 import { attackRoutes } from './routes/attackRoutes';
 import { battleRoutes } from './routes/battleRoutes';
@@ -7,6 +8,7 @@ import { trainerRoutes } from './routes/trainerRoutes';
 
 export const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use('/attacks', attackRoutes);
 app.use('/pokemons', pokemonRoutes);
 app.use('/trainers', trainerRoutes);

@@ -112,6 +112,12 @@ test('HTTP routes reject invalid input with JSON errors', async () => {
     assert.equal(sameTrainer.status, 400);
     const missing = await fetch(`${base}/unknown`);
     assert.equal(missing.status, 404);
+    const page = await fetch(`${base}/`);
+    assert.equal(page.status, 200);
+    assert.match(await page.text(), /Pokémon — Gestion/);
+    const script = await fetch(`${base}/app.js`);
+    assert.equal(script.status, 200);
+    assert.match(await script.text(), /refreshAll/);
   } finally {
     await new Promise(resolve => server.close(resolve));
   }
